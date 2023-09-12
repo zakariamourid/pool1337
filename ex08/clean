@@ -1,1 +1,0 @@
-find . -type f \( -name "*.c" -o -name "*.txt" \) -print -delete
