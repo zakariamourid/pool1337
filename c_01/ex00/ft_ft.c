@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers_test.c                            :+:      :+:    :+:   */
+/*   ft_ft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/13 15:57:25 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/13 16:02:40 by zmourid          ###   ########.fr       */
+/*   Created: 2023/09/14 16:57:38 by zmourid           #+#    #+#             */
+/*   Updated: 2023/09/14 17:04:47 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <unistd.h>
 
-void	ft_print_numbers(void)
+void	ft_ft(int *nbr)
 {
-	int	i;
-
-	i = 48;
-	while (i <= 57)
-	{
-		write(1, &i, 1);
-		i++;
-	}
+	*nbr = 42;
 }
 
 int	main(void)
 {
-	ft_print_numbers();
-	return (0);
+	int nb = 12;
+	int *nbr= &nb;
+	printf("nbr 1 = '%d'", nb);
+	ft_ft(nbr);
+	printf("nbr 2 = '%d'", nb);
+	
 }
