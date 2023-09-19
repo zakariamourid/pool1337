@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/17 14:28:08 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/17 23:20:06 by zmourid          ###   ########.fr       */
+/*   Created: 2023/09/17 18:18:25 by zmourid           #+#    #+#             */
+/*   Updated: 2023/09/17 19:01:25 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-char	*ft_strcpy(char *dest, char *src)
+#include <stdio.h>
+int	ft_str_is_numeric(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (src[i] != '\0')
+	while (str[i])
 	{
-		dest[i] = src[i];
+		
+		printf("char f i = ''%d' howa : ''%c'\n",i, str[i]);
+		if(str[i] >=  57 || str[i] <= 48)
+		{
+			return (0);
+		}
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (1);
 }
+
+int main(int ac ,char **av){
+	printf(" is it numeric : '%d'", ft_str_is_numeric(av[1]));
+			}

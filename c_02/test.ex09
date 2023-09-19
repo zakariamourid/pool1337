@@ -1,0 +1,3 @@
+int main(int ac,char **av){
+	printf("here it is capitalized: '%s'",ft_strcapitalize(av[1]));
+}

@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/17 14:28:08 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/17 23:20:06 by zmourid          ###   ########.fr       */
+/*   Created: 2023/09/17 21:37:12 by zmourid           #+#    #+#             */
+/*   Updated: 2023/09/17 23:19:09 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+void	*ft_strupcase(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (src[i] != '\0')
+	while (str[i])
 	{
-		dest[i] = src[i];
+		if (str[i] >= 97 && str[i] <= 122)
+		{
+			str[i] -= 32;
+		}
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (str);
 }

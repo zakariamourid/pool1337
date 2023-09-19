@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/17 14:28:08 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/17 23:20:06 by zmourid          ###   ########.fr       */
+/*   Created: 2023/09/17 17:08:14 by zmourid           #+#    #+#             */
+/*   Updated: 2023/09/17 18:01:18 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+#include <unistd.h>
+
+int	ft_str_is_alpha(char *str)
 {
+	int	result;
 	int	i;
 
+	result = 1;
 	i = 0;
-	while (src[i] != '\0')
+	while (str[i])
 	{
-		dest[i] = src[i];
-		i++;
+		if (!((str[i] <= 'Z' && str[i] >= 'A')
+				|| (str[i] <= 'z' && str[i] >= 'a')))
+		{
+			result = 0;
+			return (result);
+		}
+	i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (result);
 }

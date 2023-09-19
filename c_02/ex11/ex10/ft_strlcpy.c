@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/17 14:28:08 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/17 23:20:06 by zmourid          ###   ########.fr       */
+/*   Created: 2023/09/17 16:31:39 by zmourid           #+#    #+#             */
+/*   Updated: 2023/09/19 16:42:37 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	int	i;
 
 	i = 0;
-	while (src[i] != '\0')
+	while (i < size -1 && src[i] != '\0')
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+		dest[i] = '\0';
+	i = 0;
+	while (src[i])
+	{
+		i++;
+	}
+	return (i);
 }
