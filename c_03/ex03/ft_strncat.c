@@ -6,7 +6,7 @@
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:13:35 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/20 15:20:55 by zmourid          ###   ########.fr       */
+/*   Updated: 2023/09/20 22:53:09 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	{
 		j++;
 	}
-	while (i < nb)
+	while (i < nb && src[i] != '\0')
 	{
 		dest[j] = src[i];
 		i++;

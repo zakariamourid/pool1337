@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 13:34:26 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/20 13:48:21 by zmourid          ###   ########.fr       */
+/*   Created: 2023/09/20 13:49:28 by zmourid           #+#    #+#             */
+/*   Updated: 2023/09/20 22:58:37 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-
-
-unsigned int	ft_strncmp(char *s1, char *s2, unsigned int n)
+unsigned int	*ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
+	unsigned int	j;
 
 	i = 0;
-	while((s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i] && i < n))
-	{
-		i++;
+	j = 0;
+	while (dest[j] != '\0')
+	
+		j++;
 	}
-	return s1[i] - s2[i];
-}
-
-int main(int ac,char **av){
-	printf("ac='%d'",ac);
-	printf("here  is the result: '%d'\n",ft_strncmp(av[1],av[2],5));
-	printf("here  is the result ft_cmp: '%d'",strncmp(av[1],av[2],5));
+	while (src[i])
+	{
+		dest[j] = src[i];
+		i++;
+		j++;
+	}
+	dest[j] = '\0';
+	return (dest);
 }
