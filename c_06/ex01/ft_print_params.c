@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 23:11:40 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/24 18:03:33 by zmourid          ###   ########.fr       */
+/*   Created: 2023/09/24 18:08:13 by zmourid           #+#    #+#             */
+/*   Updated: 2023/09/24 18:13:26 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
 
-int	main(int argc, char **argv)
+int	main(int ac, char **av)
 {
 	int	i;
+	int	j;
 
-	(void)argc;
-	i = 0;
-	while (argv[0][i] != '\0')
+	i = 1;
+	j = 0;
+	while (i < ac)
 	{
-		write(1, &argv[0][i], 1);
+		j = 0;
+		while (av[i][j])
+		{
+			write(1, &av[i][j], 1);
+			j++;
+		}
+		write(1, "\n", 1);
 		i++;
 	}
-	write(1, "\n", 1);
+	return (0);
 }
