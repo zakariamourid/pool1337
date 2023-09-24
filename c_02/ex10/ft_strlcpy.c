@@ -6,7 +6,7 @@
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 16:31:39 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/23 13:45:14 by zmourid          ###   ########.fr       */
+/*   Updated: 2023/09/24 15:03:43 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	}
 		dest[i] = '\0';
 	i = 0;
-		return (i);
+		return (len);
 }
 
 #include <stdio.h>
