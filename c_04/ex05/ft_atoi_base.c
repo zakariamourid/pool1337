@@ -48,81 +48,86 @@ int	ft_strlen(char *str)
 	}
 	return (i);
 }
-int	ft_pow(int nbr,int power)
+int	ft_pow(int nbr, int power)
 {
 	int	i;
 	int	r;
 
 	i = 0;
 	r = 1;
-	while(i < power)
+	while (i < power)
 	{
-		r = r*nbr;
+		r = r * nbr;
 		i++;
 	}
 	return (r);
 }
-int	ft_find_index(char c,char *str)
+int	ft_find_index(char c, char *str)
 {
 	int	i;
+	int	index;
+
 	i = 0;
-	int index;
-	while(str[i])
+	while (str[i])
 	{
-		if(str[i] == c)
+		if (str[i] == c)
 			index = i;
 		i++;
-	} 
-	return index;
+	}
+	return (index);
 }
 
 int	is_not_valid(char *str, char *base)
 {
 	int	i;
 	int	j;
+
 	i = 0;
 	j = 0;
 	while (base[i])
 	{
-		if ((base[i] == '-' || base[i] == '+') || base[i] <= 32 || base[i] == 127)
+		if ((base[i] == '-' || base[i] == '+') || base[i] <= 32
+			|| base[i] == 127)
 		{
 			return (1);
-		}			
-	i++;
+		}
+		i++;
 	}
 	i = 0;
 	while (str[i])
 	{
 		j = 0;
-		while(base[j])
+		while (base[j])
 		{
-			if(str[i] == str[j])
+			if (str[i] == str[j])
 			{
 				count = 1;
-			}	
+			}
 			j++;
 		}
-		if(count == 0)
-			return 1;
+		if (count == 0)
+			return (1);
 		i++;
 	}
 	return (0);
 }
 
-int ft_atoi_base(char *str,char *base)
+int	ft_atoi_base(char *str, char *base)
 {
-	int r = 0;
-	int i = 0;
-	int base_len; 
-	int str_len; 
+	int	r;
+	int	i;
+	int	base_len;
+	int	str_len;
 	int	signe;
 
+	r = 0;
+	i = 0;
 	signe = 1;
-	while(*str == ' ')
+	while (*str == ' ')
 		str++;
-	while(*str == '-' || *str == '+')
+	while (*str == '-' || *str == '+')
 	{
-		if(*str == '-')
+		if (*str == '-')
 		{
 			signe = signe * -1;
 		}
@@ -131,16 +136,17 @@ int ft_atoi_base(char *str,char *base)
 	base_len = ft_strlen(base);
 	str_len = ft_strlen(str);
 	str_len--;
-	printf("str [i] = '%c'", str[i] );
-	while(str[i])
+	printf("str [i] = '%c'", str[i]);
+	while (str[i])
 	{
-		r = r + ((ft_find_index(str[i],base)) * ft_pow(base_len,str_len));
+		r = r + ((ft_find_index(str[i], base)) * ft_pow(base_len, str_len));
 		i++;
 		str_len--;
 	}
-	return r*signe;
-}	
-int main(){
-	printf("putnbr = '%d'",ft_atoi_base("    -+a","0123456789abcdef"));
-	return 0;
+	return (r * signe);
+}
+int	main(void)
+{
+	printf("putnbr = '%d'", ft_atoi_base("    -+a", "0123456789abcdef"));
+	return (0);
 }
