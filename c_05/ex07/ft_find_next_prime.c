@@ -6,7 +6,7 @@
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 15:03:22 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/26 20:56:10 by zmourid          ###   ########.fr       */
+/*   Updated: 2023/09/26 21:08:26 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	ft_find_next_prime(int nb)
 	{
 		if (ft_is_prime(nb))
 			found = 1;
+		nb++;
 	}
 	return (nb);
 }

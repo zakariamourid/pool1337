@@ -6,13 +6,12 @@
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 13:39:07 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/26 20:51:12 by zmourid          ###   ########.fr       */
+/*   Updated: 2023/09/26 21:09:01 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_recursive_power(int nb, int power)
 {
-	int	i;
 
 	if (power < 0)
 		return (0);
