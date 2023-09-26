@@ -6,14 +6,14 @@
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 15:03:22 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/26 15:08:53 by zmourid          ###   ########.fr       */
+/*   Updated: 2023/09/26 20:30:19 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_is_prime(int nb)
 {
 	int		count;
-	int		i;
+	long	i;
 	long	nbr;
 
 	i = 2;
@@ -23,7 +23,7 @@ int	ft_is_prime(int nb)
 		return (0);
 	if (nbr <= 3)
 		return (1);
-	while (i < nbr)
+	while (i < nbr / i)
 	{
 		if (nbr % i == 0)
 			count++;
@@ -41,9 +41,9 @@ int	ft_find_next_prime(int nb)
 	int	found;
 
 	found = 0;
-	while (found == 0)
+	while(found == 0)
 	{
-		if (ft_is_prime(nb))
+		if(ft_is_prime(nb))
 			found = 1;
 		i++;
 	}
