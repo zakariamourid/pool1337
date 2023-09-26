@@ -6,12 +6,9 @@
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 23:31:37 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/25 10:34:35 by zmourid          ###   ########.fr       */
+/*   Updated: 2023/09/26 21:21:47 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
-#include <unistd.h>
 
 int	ft_iterative_factorial(int nb)
 {

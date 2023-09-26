@@ -12,7 +12,7 @@
 
 int	ft_is_prime(int nb)
 {
-	long		i;
+	long	i;
 	long	nbr;
 
 	i = 2;
