@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/25 14:07:18 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/25 17:16:15 by zmourid          ###   ########.fr       */
+/*   Created: 2023/09/22 20:51:19 by zmourid           #+#    #+#             */
+/*   Updated: 2023/09/22 20:55:11 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int	ft_fibonacci(int index)
+int	ft_atoi(char *str)
 {
-	if (index < 0)
-		return (-1);
-	if (index == 0)
-		return (0);
-	if (index == 1 || index == 2)
-		return (1);
-	if (index > 2)
-		return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
-	return (0);
-}
+	int	result;
+	int	signe;
+	int	i;
 
-int	main(void)
-{
-	printf(" %d \n", ft_fibonacci(50));
+	i = 0;
+	signe = 1 ;
+	result = 0;
+	while (str[i] == ' ')
+		i++;
+	while (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+		{
+			signe = signe * -1;
+		}
+		i++;
+	}
+	while (str[i] <= '9' && str[i] >= '0')
+	{
+		result = result * 10 + (str[i] - '0' );
+		i++;
+	}
+	return (signe * result);
 }

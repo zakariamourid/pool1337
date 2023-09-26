@@ -6,7 +6,7 @@
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 16:27:57 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/25 17:11:15 by zmourid          ###   ########.fr       */
+/*   Updated: 2023/09/26 15:59:36 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,11 @@ int	ft_sqrt(int nb)
 	i = 0;
 	while (i < nb / 2)
 	{
-		if ( i*i == nb)
+		if (i * i == nb)
 		{
-			return i;
+			return (i);
 		}
 		i++;
 	}
 	return (0);
-}
-int main ()
-{
-	printf("sqrt of 16 is : %d",ft_sqrt(10000));
 }

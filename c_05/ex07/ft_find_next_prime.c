@@ -1,38 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 13:34:26 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/20 22:37:53 by zmourid          ###   ########.fr       */
+/*   Created: 2023/09/26 15:03:22 by zmourid           #+#    #+#             */
+/*   Updated: 2023/09/26 15:08:53 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-
-
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_is_prime(int nb)
 {
-	unsigned int	i;
+	int		count;
+	int		i;
+	long	nbr;
 
-	i = 0;
-	while (i < n)
+	i = 2;
+	nbr = nb;
+	count = 0;
+	if (nbr <= 1)
+		return (0);
+	if (nbr <= 3)
+		return (1);
+	while (i < nbr)
 	{
-		if(s1[i] != s2[i] || s1[i] == '\0' || s2[i] != '\0')
-		{
-			return s1[i] - s2[i];
-		}
+		if (nbr % i == 0)
+			count++;
 		i++;
 	}
-	return (0);
+	if (count >= 2)
+		return (0);
+	else
+		return (1);
 }
 
+int	ft_find_next_prime(int nb)
+{
+	int	i;
+	int	found;
 
-int main(int ac,char **av){
-	printf("ac='%d'",ac);
-	printf("here  is the result: '%d'\n",ft_strncmp(av[1],av[2],5));
-	printf("here  is the result ft_cmp: '%d'",strncmp(av[1],av[2],5));
+	found = 0;
+	while (found == 0)
+	{
+		if (ft_is_prime(nb))
+			found = 1;
+		i++;
+	}
+	return (nb);
 }
