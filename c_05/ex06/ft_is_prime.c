@@ -6,19 +6,17 @@
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:19:33 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/26 20:39:57 by zmourid          ###   ########.fr       */
+/*   Updated: 2023/09/26 20:42:03 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_is_prime(int nb)
 {
-	int		count;
 	long		i;
 	long	nbr;
 
 	i = 2;
 	nbr = nb;
-	count = 0;
 	if (nbr <= 1)
 		return (0);
 	if (nbr <= 3)
