@@ -6,7 +6,7 @@
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 17:20:15 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/24 16:29:23 by zmourid          ###   ########.fr       */
+/*   Updated: 2023/09/27 16:41:56 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ int	is_duplicate(char *str)
 		while (str[j])
 		{
 			if (str[i] == str[j])
-			{
 				count = 1;
-			}
 			j++;
 		}
 		i++;
@@ -43,9 +41,7 @@ int	ft_strlen(char *str)
 
 	i = 0;
 	while (str[i])
-	{
 		i++;
-	}
 	return (i);
 }
 int	ft_pow(int nbr, int power)
@@ -77,20 +73,20 @@ int	ft_find_index(char c, char *str)
 	return (index);
 }
 
-int	is_not_valid(char *str, char *base)
+int	is_valid(char *str, char *base)
 {
 	int	i;
 	int	j;
+	int	count;
 
 	i = 0;
 	j = 0;
+	count = 0;
 	while (base[i])
 	{
 		if ((base[i] == '-' || base[i] == '+') || base[i] <= 32
 			|| base[i] == 127)
-		{
 			return (1);
-		}
 		i++;
 	}
 	i = 0;
@@ -127,26 +123,18 @@ int	ft_atoi_base(char *str, char *base)
 		str++;
 	while (*str == '-' || *str == '+')
 	{
-		if (*str == '-')
-		{
+		if (*str++ == '-')
 			signe = signe * -1;
-		}
-		str++;
 	}
 	base_len = ft_strlen(base);
-	str_len = ft_strlen(str);
-	str_len--;
-	printf("str [i] = '%c'", str[i]);
-	while (str[i])
-	{
-		r = r + ((ft_find_index(str[i], base)) * ft_pow(base_len, str_len));
-		i++;
-		str_len--;
-	}
+	str_len = ft_strlen(str) -1;
+	printf("str [r] = '%c'", str[i]);
+	while (is_valid(str[i]))
+		r = r + ((ft_find_index(str[i++], base)) * ft_pow(base_len, str_len--));
 	return (r * signe);
 }
 int	main(void)
 {
-	printf("putnbr = '%d'", ft_atoi_base("    -+a", "0123456789abcdef"));
+	printf("putnbr = '%d'", ft_atoi_base("    +a1", "0123456789abcdef"));
 	return (0);
 }
