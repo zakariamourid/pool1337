@@ -6,7 +6,7 @@
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 17:24:56 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/27 21:45:53 by zmourid          ###   ########.fr       */
+/*   Updated: 2023/09/29 21:25:56 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strjoin(int size,char **strs)
 		len+=j;
 		i++;
 	}
-	printf("%d",len);
+	print("%d",len);
 	str = malloc((len *sizeof(char)) + size);
 	//added size for the sep cases + the size of all the strs 
 	//the last string does not require a seperator so it will be a minus 1 .
