@@ -5,11 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 17:24:56 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/29 21:29:59 by zmourid          ###   ########.fr       */
+/*   Created: 2023/10/01 20:47:54 by zmourid           #+#    #+#             */
+/*   Updated: 2023/10/01 23:00:02 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -22,55 +21,64 @@ int	ft_strlen(char *str)
 		i++;
 	return (i);
 }
-int	calc_size(int size, char **strs, char *sep)
+
+int	ft_concat(char *src, char *dest)
+{
+	int	i;
+
+	i = 0;
+	while (*src)
+	{
+		i++;
+		*dest = *src;
+		dest++;
+		src++;
+	}
+	*dest = '\0';
+	return (i);
+}
+
+int	strs_len(int size, char **strs, char *sep)
 {
 	int	i;
 	int	len;
+	int	sep_size;
 
 	i = 0;
 	len = 0;
+	sep_size = ft_strlen(sep);
 	while (i < size)
+	{
 		len += ft_strlen(strs[i++]);
-	len += ft_strlen(sep) * (size - 1);
+	}
+	len += sep_size * (size - 1);
 	return (len);
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
-	int		len;
+	int		strs_size;
 	int		i;
-	int		j;
-	int		k;
+	int		count;
 	char	*str;
 
-	if (size <= 0)
+	strs_size = strs_len(size, strs, sep);
+	i = 0;
+	count = 0;
+	if (size == 0)
 	{
 		str = malloc(1);
 		str[0] = '\0';
 		return (str);
 	}
-	len = 0;
-	i = 0;
-	k = 0;
-	len = calc_size(size, strs, sep);
-	str = malloc((len * sizeof(char)) + 1);
-	while (k < size)
+	str = (char *)malloc(strs_size + 1);
+	if (str == NULL)
+		return (NULL);
+	while (i < size)
 	{
-		j = 0;
-		while (strs[k][j] != '\0')
-			str[i++] = strs[k][j++];
-		j = 0;
-		while (k != size - 1 && sep[j])
-			str[i++] = sep[j++];
-		k++;
+		str += ft_concat(strs[i], str);
+		if (i++ != size - 1)
+			str += ft_concat(sep, str);
 	}
-	str[i] = '\0';
-	return (str);
-}
-int	main(void)
-{
-	char	*arr[];
-
-	arr[] = {"hello ", "world", "what's up"};
-	printf("here is the str =%s", ft_strjoin(3, arr, "TIT"));
+	return (str - strs_size);
 }
