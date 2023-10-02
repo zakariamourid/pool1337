@@ -6,7 +6,7 @@
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 17:20:15 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/25 18:26:27 by zmourid          ###   ########.fr       */
+/*   Updated: 2023/10/02 14:40:56 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,28 +87,4 @@ void	ft_putnbr_base(int nbr, char *base)
 			ft_putnbr_base((nb % len), base);
 		}
 	}
-}
-
-int	main(int ac, char **av)
-{
-	int	r;
-	(void)ac;
-	int	i;
-	int	signe;
-
-	r = 0;
-	i = 0;
-	signe = 1;
-	if (av[1][i] == '-')
-	{
-		signe = -1;
-		i++;
-	}
-	while (av[1][i])
-	{
-		r = r * 10 + (av[1][i] - 48);
-		i++;
-	}
-	r = r * signe;
-	ft_putnbr_base(r, av[2]);
 }

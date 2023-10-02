@@ -6,44 +6,13 @@
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 17:20:15 by zmourid           #+#    #+#             */
-/*   Updated: 2023/09/27 16:41:56 by zmourid          ###   ########.fr       */
+/*   Updated: 2023/10/02 14:42:32 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-int	is_duplicate(char *str)
-{
-	int	i;
-	int	count;
-	int	j;
-
-	i = 0;
-	count = 0;
-	while (str[i])
-	{
-		j = i + 1;
-		while (str[j])
-		{
-			if (str[i] == str[j])
-				count = 1;
-			j++;
-		}
-		i++;
-	}
-	return (count);
-}
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 int	ft_pow(int nbr, int power)
 {
 	int	i;
@@ -63,49 +32,47 @@ int	ft_find_index(char c, char *str)
 	int	i;
 	int	index;
 
+	index = -1;
 	i = 0;
 	while (str[i])
 	{
 		if (str[i] == c)
-			index = i;
+			return (i);
 		i++;
 	}
 	return (index);
 }
-
-int	is_valid(char *str, char *base)
+int	is_valid(char *base)
 {
 	int	i;
 	int	j;
-	int	count;
 
 	i = 0;
 	j = 0;
-	count = 0;
 	while (base[i])
 	{
 		if ((base[i] == '-' || base[i] == '+') || base[i] <= 32
 			|| base[i] == 127)
-			return (1);
-		i++;
-	}
-	i = 0;
-	while (str[i])
-	{
-		j = 0;
+			return (0);
+		j = i + 1;
 		while (base[j])
 		{
-			if (str[i] == str[j])
-			{
-				count = 1;
-			}
+			if (base[j] == base[i])
+				return (0);
 			j++;
 		}
-		if (count == 0)
-			return (1);
 		i++;
 	}
-	return (0);
+	return (1);
+}
+int	ft_strlen(char *str, char *base)
+{
+	int	i;
+
+	i = 0;
+	while (ft_find_index(str[i], base) != -1 && str[i])
+		i++;
+	return (i);
 }
 
 int	ft_atoi_base(char *str, char *base)
@@ -118,6 +85,7 @@ int	ft_atoi_base(char *str, char *base)
 
 	r = 0;
 	i = 0;
+	base_len = 0;
 	signe = 1;
 	while (*str == ' ')
 		str++;
@@ -126,15 +94,14 @@ int	ft_atoi_base(char *str, char *base)
 		if (*str++ == '-')
 			signe = signe * -1;
 	}
-	base_len = ft_strlen(base);
-	str_len = ft_strlen(str) -1;
-	printf("str [r] = '%c'", str[i]);
-	while (is_valid(str[i]))
-		r = r + ((ft_find_index(str[i++], base)) * ft_pow(base_len, str_len--));
+	while (base[base_len])
+		base_len++;
+	str_len = ft_strlen(str, base) - 1;
+	if (is_valid(base))
+	{
+		while ((ft_find_index(str[i], base) != -1))
+			r = r + ((ft_find_index(str[i++], base)) * ft_pow(base_len,
+						str_len--));
+	}
 	return (r * signe);
-}
-int	main(void)
-{
-	printf("putnbr = '%d'", ft_atoi_base("    +a1", "0123456789abcdef"));
-	return (0);
 }
