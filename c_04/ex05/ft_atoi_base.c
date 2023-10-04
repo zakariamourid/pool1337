@@ -6,7 +6,7 @@
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 17:20:15 by zmourid           #+#    #+#             */
-/*   Updated: 2023/10/02 14:42:32 by zmourid          ###   ########.fr       */
+/*   Updated: 2023/10/03 00:19:04 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,21 @@ int	ft_strlen(char *str, char *base)
 	return (i);
 }
 
+int	ft_atoi(char *str)
+{
+	int	signe;
+
+	signe = 1;
+	while (*str == ' ')
+		str++;
+	while (*str == '-' || *str == '+')
+	{
+		if (*str++ == '-')
+			signe = signe * -1;
+	}
+	return (signe);
+}
+
 int	ft_atoi_base(char *str, char *base)
 {
 	int	r;
@@ -84,24 +99,21 @@ int	ft_atoi_base(char *str, char *base)
 	int	signe;
 
 	r = 0;
-	i = 0;
 	base_len = 0;
-	signe = 1;
-	while (*str == ' ')
-		str++;
-	while (*str == '-' || *str == '+')
-	{
-		if (*str++ == '-')
-			signe = signe * -1;
-	}
+	signe = ft_atoi(str);
 	while (base[base_len])
 		base_len++;
 	str_len = ft_strlen(str, base) - 1;
 	if (is_valid(base))
 	{
-		while ((ft_find_index(str[i], base) != -1))
-			r = r + ((ft_find_index(str[i++], base)) * ft_pow(base_len,
+		while ((ft_find_index(*str, base) != -1))
+			r = r + ((ft_find_index(*str++, base)) * ft_pow(base_len,
 						str_len--));
 	}
 	return (r * signe);
+}
+int	main(int ac, char **av)
+{
+	printf("putnbr = '%d'", ft_atoi_base(av[1], av[2]));
+	return (0);
 }
