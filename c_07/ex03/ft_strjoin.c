@@ -6,7 +6,7 @@
 /*   By: zmourid <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 20:47:54 by zmourid           #+#    #+#             */
-/*   Updated: 2023/10/01 23:00:02 by zmourid          ###   ########.fr       */
+/*   Updated: 2023/10/05 20:14:36 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -57,7 +57,7 @@ int	strs_len(int size, char **strs, char *sep)
 
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
-	int		strs_size;
+	int		strs_size
 	int		i;
 	int		count;
 	char	*str;
